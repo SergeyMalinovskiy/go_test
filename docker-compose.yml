@@ -4,3 +4,8 @@ services:
     app:
         container_name: ${CONTAINER_PREFIX}_app
         build: ./docker/go
+        volumes:
+            - ./:/opt/app/src
+        working_dir: /opt/app/src
+        # command: go run app/main.go
+        command: tail -F anything
